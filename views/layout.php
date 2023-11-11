@@ -36,9 +36,9 @@
     <div class="contenedor__menu" id="sideNavBtn">
         <a onclick="openNav()"><i class="fa-solid fa-bars"></i></a>
     </div>
-    
 
-    <?php if($_SERVER['REDIRECT_URL'] != "/admin" && $_SESSION['admin']): ?>
+
+    <?php if ($_SERVER['REDIRECT_URL'] != "/admin" && $_SESSION['admin']) : ?>
         <div class="contenedor__menu">
             <a onclick="openMenuFilter()"><i id="icono__filtrar" class="fa-solid fa-filter-list "></i></a>
         </div>
@@ -118,7 +118,7 @@
                         <input class="input__busc" type="text" placeholder="EJ: Hernandez Soto" id="apellidos">
                     </div>
                 </form>
-            <?php } else if ($funcionarios){ ?>
+            <?php } else if ($funcionarios) { ?>
                 <form id="buscador">
                     <div class="buscadooor">
                         <label class="titulo__busc" for="rut">Rut</label>
@@ -143,45 +143,48 @@
     <?php endif; ?>
 
     <nav id="mySidenav" class="sidenav">
-        <p class="bienvenida__tittle">  Bienvenido/a <br> <?php echo $_SESSION["nombresApellidosUser"]?>  <i class="fa-solid fa-hand-wave"></i> </p>
+        <p class="bienvenida__tittle"> Bienvenido/a <br> <?php echo $_SESSION["nombresApellidosUser"] ?> <i class="fa-solid fa-hand-wave"></i> </p>
         <a href="/admin" class="title">Inicio</a>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-        <?php if ($_SESSION['admin'] == '1') { ?>
-            <button class="bm" onclick="document.getElementById('modal').showModal();">Agregar Asistencia</button>
-            <dialog id="modal">
-                <form class="form" action="/admin/asistencia/crear" method="POST">
-                    <legend class="tittle"> Agregar Asistencia</legend>
-                    <!-- CAMPOS -->
-                    <div class="cont-campos">
-                        <h5>Rut Estudiante:</h5>
-                        <input type="text" class="text-area"
-                                id="rut_estu" list="listaEstudiantes"
-                                name="asistencia[rut_estu]"
-                                placeholder="12345678-9 o Ignacio 4F"
-                                autocomplete="off">
-                            <!--List hace referencia al datalist-->
-                            <datalist id="listaEstudiantes">
-                                <?php foreach($estudiantesAll as $estudiante):?>
-                                            <option value="<?php echo $estudiante->rut_estu; ?>"
-                                                    label="<?php echo $estudiante->nombres_estu . " " . $estudiante->apellidos_estu . " - " . $estudiante->id_curso; ?>">
-                                <?php endforeach;?>
-                            </datalist>
-                    </div>
-                    
-                    <div class="cont-campos">
-                        <h5>Comentario:</h5>
-                        <input class="text-area" type="text" id="comentario_asis" name="asistencia[comentario_asis]" placeholder="Intento de Fuga (Opcional)">
-                    </div>
-                    <input type="hidden" value="<?php echo $_SESSION['usuario']; ?>" name="asistencia[rut_func]">
+        <button class="bm" onclick="document.getElementById('modal').showModal();">Agregar Asistencia</button>
+        <dialog id="modal">
+            <form class="form" action="/admin/asistencia/crear" method="POST">
+                <legend class="tittle"> Agregar Asistencia</legend>
+                <!-- CAMPOS -->
+                <div class="cont-campos">
+                    <h5>Rut Estudiante:</h5>
+                    <input type="text" class="text-area" id="rut_estu" list="listaEstudiantes" name="asistencia[rut_estu]" placeholder="12345678-9 o Ignacio 4F" autocomplete="off">
+                    <!--List hace referencia al datalist-->
+                    <datalist id="listaEstudiantes">
+                        <?php foreach ($estudiantesAll as $estudiante) : ?>
+                            <option value="<?php echo $estudiante->rut_estu; ?>" label="<?php echo $estudiante->nombres_estu . " " . $estudiante->apellidos_estu . " - " . $estudiante->id_curso; ?>">
+                            <?php endforeach; ?>
+                    </datalist>
+                </div>
 
-                    <!-- BOTON AGREGAR -->
-                    <div class="cont-boton">
-                        <input class="boton" type="submit" id="asistencia" value="Agregar">
-                    </div>
-                </form>
-                <button onclick="document.getElementById('modal').close();">Cerrar</button>
-            </dialog>
+                <div class="cont-campos">
+                    <h5>Atraso:</h5>
+                        <input type="radio" name="asistencia[atraso_asis]" id="1" value="1"> si
+                        <input type="radio" name="asistencia[atraso_asis]" id="0" value="0"> no
+                </div>
+
+                <div class="cont-campos">
+                    <h5>Justificante:</h5>
+                    <input class="text-area" type="text" id="justificante_asis" name="asistencia[justificante_asis]" placeholder="Intento de Fuga (Opcional)">
+                </div>
+                <input type="hidden" value="<?php echo $_SESSION['usuario']; ?>" name="asistencia[rut_func]">
+
+                <!-- BOTON AGREGAR -->
+                <div class="cont-boton">
+                    <input class="boton" type="submit" id="asistencia" value="Agregar">
+                </div>
+            </form>
+            <button onclick="document.getElementById('modal').close();">Cerrar</button>
+        </dialog>
+
+        <?php if ($_SESSION['admin'] == '1'): ?>
+
 
             <button class="bm" onclick="document.getElementById('modal2').showModal();">Agregar Estudiante</button>
             <dialog id="modal2">
@@ -192,23 +195,18 @@
                         <h5> Rut:</h5>
                         <input class="text-area" type="text" id="rut_estu" name="estudiante[rut_estu]" placeholder="12345678-9">
                     </div>
-                    
+
                     <div class="cont-campos">
                         <h5>Rut Apoderado:</h5>
-                        <input type="text" class="text-area"
-                                id="rut_apod" list="listaApoderados"
-                                name="estudiante[rut_apod]"
-                                placeholder="12345678-9 o Soledad Zu���iga"
-                                autocomplete="off">
-                            <!--List hace referencia al datalist-->
-                            <datalist id="listaApoderados">
-                                <?php foreach($apoderadosAll as $apoderado):?>
-                                            <option value="<?php echo $apoderado->rut_apod; ?>"
-                                                    label="<?php echo $apoderado->nombres_apod . " " . $apoderado->apellidos_apod; ?>">
-                                <?php endforeach;?>
-                            </datalist>
+                        <input type="text" class="text-area" id="rut_apod" list="listaApoderados" name="estudiante[rut_apod]" placeholder="12345678-9 o Soledad Zu���iga" autocomplete="off">
+                        <!--List hace referencia al datalist-->
+                        <datalist id="listaApoderados">
+                            <?php foreach ($apoderadosAll as $apoderado) : ?>
+                                <option value="<?php echo $apoderado->rut_apod; ?>" label="<?php echo $apoderado->nombres_apod . " " . $apoderado->apellidos_apod; ?>">
+                                <?php endforeach; ?>
+                        </datalist>
                     </div>
-                            
+
                     <div class="cont-campos">
                         <h5> Nombres:</h5>
                         <input class="text-area" type="text" id="nombre_estu" name="estudiante[nombres_estu]" placeholder="Nombre">
@@ -217,22 +215,17 @@
                         <h5> Apellidos:</h5>
                         <input class="text-area" type="text" id="apellido_estu" name="estudiante[apellidos_estu]" placeholder="Apellido">
                     </div>
-                    
+
                     <div class="cont-campos">
                         <h5> Curso:</h5>
-                        <input type="text" class="text-area"
-                                id="curso_estudiante" list="opciones"
-                                name="estudiante[id_curso]"
-                                placeholder="Seleccione un Curso"
-                                autocomplete="off"
-                            <!--List hace referencia al datalist-->
-                            <datalist id="opciones">
-                                <?php foreach($cursos as $curso):?>
-                                    <option value="<?php echo $curso->id_curso . ") " . $curso->grado_curso . $curso->letra_curso; ?>">
-                                <?php endforeach;?>
-                            </datalist>
+                        <input type="text" class="text-area" id="curso_estudiante" list="opciones" name="estudiante[id_curso]" placeholder="Seleccione un Curso" autocomplete="off" <!--List hace referencia al datalist-->
+                        <datalist id="opciones">
+                            <?php foreach ($cursos as $curso) : ?>
+                                <option value="<?php echo $curso->id_curso . ") " . $curso->grado_curso . $curso->letra_curso; ?>">
+                                <?php endforeach; ?>
+                        </datalist>
                     </div>
-                    
+
                     <!-- Input Curso Antiguo  -->
                     <!--
                     <div class="cont-campos">
@@ -240,7 +233,7 @@
                         <input class="text-area" type="text" id="curso_estu" name="estudiante[id_curso]" placeholder="1A">
                     </div>
                     -->
-                    
+
                     <!-- BOTON AGREGAR -->
                     <div class="cont-boton">
                         <input class="boton" type="submit" id="login_estu" value="Agregar">
@@ -254,7 +247,7 @@
                 <form class="form" action="/admin/curso/crear" method="POST">
                     <legend class="tittle"> Agregar curso</legend>
                     <!-- CAMPOS -->
-                            
+
                     <div class="cont-campos">
                         <h5>Grado:</h5>
                         <input class="text-area" type="text" id="grado_curso" name="curso[grado_curso]" placeholder="Grado - Ej: 3">
@@ -267,8 +260,8 @@
                         <h5>N° de Sala:</h5>
                         <input class="text-area" type="text" id="numero_sala" name="curso[numero_sala]" placeholder="Numero - Ej: 14">
                     </div>
-                    
-                    
+
+
                     <!-- BOTON AGREGAR -->
                     <div class="cont-boton">
                         <input class="boton" type="submit" id="login_estu" value="Agregar">
@@ -343,26 +336,7 @@
                 </form>
                 <button onclick="document.getElementById('modal4').close();">Cerrar</button>
             </dialog>
-        <?php } else if ($_SESSION['admin'] === '0') { ?>
-            <button class="bm" onclick="document.getElementById('modal').showModal();">Agregar Asistencia</button>
-            <dialog id="modal">
-                <form class="form" action="/admin/asistencia/crear" method="POST">
-                    <legend class="tittle"> Agregar Asistencia</legend>
-                    <!-- CAMPOS -->
-                    <div class="cont-campos">
-                        <h5> Rut estudiante:</h5>
-                        <input class="text-area" type="text" id="rut_estu" name="asistencia[rut_estu]" placeholder="12345678-9">
-                    </div>
-                    <input type="hidden" value="<?php echo $_SESSION['usuario']; ?>" name="asistencia[rut_func]">
-
-                    <!-- BOTON AGREGAR -->
-                    <div class="cont-boton">
-                        <input class="boton" type="submit" id="asistencia" value="Agregar">
-                    </div>
-                </form>
-                <button onclick="document.getElementById('modal').close();">Cerrar</button>
-            </dialog>
-        <?php } ?>
+        <?php endif; ?>
 
         <a href="/logout" class="botonN">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
     </nav>

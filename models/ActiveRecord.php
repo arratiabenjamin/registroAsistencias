@@ -159,7 +159,7 @@ use DateTime;
         public function atributos(){
             $atributos = [];
             foreach( static::$columnasDB as $columna ){
-                if($columna === 'id_asis' or $columna === 'id_curso')continue;
+                if($columna === 'id_asis' or ($columna === 'id_curso' && static::$tabla === 'cursos'))continue;
                 $atributos[$columna] = $this->$columna;
             }
             return $atributos;

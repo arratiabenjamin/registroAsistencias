@@ -38,7 +38,9 @@
                 $fecha = new DateTime();
                 $_POST['asistencia']['fecha'] = $fecha->format("Y-m-d");
                 $_POST['asistencia']['hora'] = $fecha->format("H:i");
+                $_POST['asistencia']['asistencia_asis'] = '1';
                 $asistencia = new Asistencia($_POST['asistencia']);
+                // debugear($asistencia);
                 $errores = $asistencia->validar();
                 if(empty($errores)){
                     $asistencia->guardar();

@@ -20,8 +20,8 @@ class Asistencia extends ActiveRecord
     public function __construct($args = [])
     {
         $this->id_asis = $args['id'] ?? null;
-        $this->asistencia_asis = $args['asistencia'] ?? null;
-        $this->atraso_asis = $args['atraso'] ?? null;
+        $this->asistencia_asis = $args['asistencia_asis'] ?? null;
+        $this->atraso_asis = $args['atraso_asis'] ?? null;
         $this->fecha_asis = $args['fecha'] ?? null;
         $this->hora_asis = $args['hora'] ?? null;
         $this->justificante_asis = $args['justificante'] ?? null;

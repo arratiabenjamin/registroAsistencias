@@ -16,20 +16,22 @@
         <tbody>
             <tr class="header row">
                 <th class="cell pl">N° </th>
-                <th class="cell">Fecha</th>
-                <th class="cell h">Hora</th>
+                <th class="cell">Asistencia</th>
+                <th class="cell">Atraso</th>
+                <th class="cell">Fecha y Hora</th>
                 <th class="cell">Rut Estudiante</th>
-                <th class="cell">Nombre Estudiante</th>
+                <th class="cell">Nombres Estudiante</th>
                 <th class="cell">Curso</th>
-                <th class="cell">Comentario</th>
-                <th class="cell act">Acciones </th>
+                <th class="cell">Justificante</th>
+                <th class="cell act">Acciones</th>
             </tr>
             <?php foreach ($asistencias as $asistencia) : ?>
                 <tr class="row">
                     <!-- Info Varia -->
                     <td class="cell pl"><?php echo $asistencia->id_asis ?></td>
-                    <td class="cell"><?php echo $asistencia->fecha_asis ?></td>
-                    <td class="cell h"><?php echo $asistencia->hora_asis ?></td>
+                    <td class="cell pl"><?php echo $asistencia->asistencia_asis == "1" ? "Si" : "No" ?></td>
+                    <td class="cell pl"><?php echo $asistencia->atraso_asis == "1" ? "Si" : "No" ?></td>
+                    <td class="cell"><?php echo $asistencia->fecha_asis . "<br>" . $asistencia->hora_asis?></td>
                     <td class="cell"><?php echo $asistencia->rut_estu ?></td>
 
                     <!-- Nombre y Curso Estudiante -->
@@ -41,7 +43,7 @@
                     <?php endforeach; ?>
 
                     <!-- Comentario -->
-                    <td class="cell"><?php echo $asistencia->comentario_asis == "" ? "N/A" : $asistencia->comentario_asis ?></td>
+                    <td class="cell"><?php echo $asistencia->justificante_asis == "" ? "N/A" : $asistencia->justificante_asis ?></td>
 
                     <!-- Acciones -->
                     <td class="action cell">

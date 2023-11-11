@@ -32,7 +32,7 @@
                     <?php endforeach; ?>
                     
                     <!-- Comentario -->
-                    <td class="cell"><?php echo $asistencia->comentario_asis ? $asistencia->comentario_asis : "N/A" ?></td>
+                    <td class="cell"><?php echo $asistencia->justificante_asis ? $asistencia->justificante_asis : "N/A" ?></td>
                     
                     <!-- Acciones -->
                     <td class="action cell">

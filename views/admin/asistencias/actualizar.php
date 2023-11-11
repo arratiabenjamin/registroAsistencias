@@ -7,6 +7,13 @@
             <h5>Rut estudiante:</h5>
             <input class="text-area" type="text" id="rut_estu" name="asistencia[rut_estu]" value="<?php echo $asistencia->rut_estu;?>" placeholder="12345678-9">
         </div>
+        
+        <div class="cont-campos">
+            <h5>Atraso:</h5>
+                <input type="radio" name="asistencia[atraso_asis]" id="1" value="1"> si
+                <input type="radio" name="asistencia[atraso_asis]" id="0" value="0"> no
+        </div>
+
         <div class="cont-campos">
             <h5>Comentario:</h5>
             <input class="text-area" type="text" id="comentario_asis" name="asistencia[comentario_asis]" value="<?php echo $asistencia->comentario_asis;?>" placeholder="Intento de Fuga (Opcional)">
