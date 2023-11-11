@@ -1,0 +1,425 @@
+:root {
+  --principal: #6c7ae0;
+  --secundario:#c4d3f6;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {  
+  box-sizing: inherit;
+}
+
+body {
+  background: red;
+  font-size: 16px;   /*1rem = 10px*/
+  font-family: 'Krub', sans-serif;
+  background-color: var(--secundario);
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+
+.pl {padding-left: 4rem;}
+.h {padding-right: 3rem;}
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 25rem; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #07060e; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  display: flex;
+  flex-direction: column;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  padding-bottom: 3rem;
+  font-size: 25px;  
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#main {
+  transition-duration: 0.5s;
+  margin-left: 25rem;
+  height: auto;
+
+  margin-top: -2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  border-radius: 1.6rem;
+  padding: 2rem 0;
+}
+
+.table {
+  width: 70%;
+  text-align: left;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  /*box-shadow: 0rem 0.5rem 2rem #000;*/
+  margin-bottom: 1rem;
+}
+
+.header{
+  background-color: var(--principal ) !important;
+  color: #fff;
+}
+
+.row {
+  height: 5rem;
+  background-color: #fff;
+  border-bottom: rgb(242, 242, 242) solid 1px ;
+}
+
+.row:hover {
+  background-color: rgba(245, 238, 253, 0.774);
+}
+
+
+.icon-button {
+background-color: transparent;
+color:  var(--principal);
+border: none;
+cursor: pointer;
+}
+
+.act {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 5rem;
+}
+.action{
+height: 5rem;
+display: flex;
+align-items: center;
+justify-content: center; 
+gap: 2rem;
+}
+
+
+.btn-action{
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  height: 3rem;
+  width: 7rem;
+  transition: 0.5s;
+  border-radius: 0.5rem;
+}
+.btn-action:hover {
+cursor: pointer;
+}
+.actualizar{
+  background-color: #378a06;
+}
+
+.eliminar{
+  
+  background-color: #d6a503;
+}
+
+
+/* Modal Button*/
+
+.bm {
+height: 3rem;
+width: 80%;
+background-color: var(--principal);
+border: none;
+font-weight: bold;
+margin: 0 2.2rem 3rem;
+cursor: pointer;
+color: #fff;
+border-radius: 0.4rem;
+}
+
+.bm:hover {
+background-color: #818181;
+}
+
+/* FORM */
+
+.form { /* CONTENEDOR FORM - FORM */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 85%;
+background-color: white;
+width: 39rem;
+}
+
+@media (max-width: 480px) {
+.form {
+    width: 93%;
+}
+}
+
+.tittle {
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+font-size: 2.8rem;
+font-weight: 700;
+padding: 2rem; /* !AGREGARLE PADDING*/
+color: black;
+}
+
+.cont-campos{ /* INPUT LOGIN */
+position: relative;
+display: flex;
+flex-direction: row;
+align-items: center;
+
+border-bottom: 3px solid #757575;
+width: 32rem;
+height: 3.5rem;
+margin-bottom: 1.5rem;
+}
+
+.cont-campos:hover{
+border-bottom: 3px solid  var(--principal);
+}
+
+#icon{
+position: absolute;
+display: block;
+bottom: .5rem;
+right: 1rem;
+
+user-select: none;
+cursor: pointer;
+}
+
+.text-area {
+height: 100%;
+border:none;
+text-decoration: none;
+padding: 1.5rem;
+outline: none;
+}
+
+@media (max-width: 480px) {
+.text-area {
+width: 32rem;
+}
+}
+
+.boton {
+background-color: var(--principal);
+width: 32rem;
+border:none;
+font-weight: 700;
+border-radius: 0.5rem;
+margin-bottom: 2rem;
+padding: 1.5rem;
+}
+
+.boton:hover{
+cursor: pointer;
+transition: linear 0.8s;
+background-color:#757575;
+color: white;
+
+}
+
+
+input#login[value=Ingresar] {
+font-weight: 700;
+font-size:medium;
+}
+
+.contenedor__menu i {
+color: var(--principal);
+font-size: 3rem;
+font-weight: 900;
+padding-left: 4rem;
+padding-top:3rem;
+}
+
+
+i {
+cursor: pointer;
+}
+
+.viewAll{
+  margin: 1rem;
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--principal);
+  padding: 1rem 2rem;
+  border-radius: .2rem;
+  font-weight: 900;
+  color: white;
+}
+.viewAll:visited{
+  color: white;
+}
+.viewAll:hover{
+  border: .1rem solid var(--principal);
+  background-color: var(--secundario);
+  color: var(--principal);
+  padding: .9rem 1.9rem;
+}
+
+/* Menu Filter */
+.menuFilter {
+  height: 100%; /* 100% Full-height */
+  width: 25rem; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #07060e; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the menuFilter */
+  display: flex;
+  flex-direction: column;
+}
+
+/* The navigation menu links */
+.menuFilter a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  padding-bottom: 3rem;
+  font-size: 25px;  
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.menuFilter a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.menuFilter .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the menuFilter (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .menuFilter {padding-top: 15px;}
+  .menuFilter a {font-size: 18px;}
+}
+
+
+.titulo__busc {
+
+  display: flex;
+  text-align: left;
+  font-family: 'Krub', sans-serif;
+  color: #6c7ae0  ;
+  font-weight: 600;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.buscadooor {
+  margin-bottom: 1.2rem;
+}
+
+.input__busc {
+  color: #f1f1f1;
+}
+
+.input__busc {
+  width: 19rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 2rem;
+  height: 2.5rem;
+  border-bottom: 0.2rem solid;
+}
+
+.input__busc:focus {
+  transition: 0.5s;
+  border-color: #6c7ae0;
+}
+
+
+.cont__printBtn {
+  display:flex;
+  justify-content:center;
+  margin-top:2rem;
+  border: none;
+}
+
+#printBtn span {
+  margin-right:.5rem;
+  font-family:'Krub', sans-serif;
+  font-weight:900;
+}
+
+#printBtn {
+  cursor:pointer;
+  background-color:var(--principal);
+  height:5rem;
+  /*Agregar border radius*/
+  border: none;
+  border-radius: .5rem;
+  color:white;
+}
+
+#printBtn i {
+  font-size:1.9rem;
+}
+
+#printBtn:hover {
+  background-color: transparent;
+  border: .2rem solid var(--principal);
+  color: var(--principal);
+}
+
+.bienvenida__tittle {
+    color: #818181;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+

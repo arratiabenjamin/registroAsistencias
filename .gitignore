@@ -1,0 +1,16 @@
+DC.mdj
+src/
+/vendor/
+.vscode/
+access-logs/
+etc/
+logs/
+mail/
+public_ftp/
+ssl/
+tmp/
+www/
+MF.mwb
+MF.mwb.bak
+composer.lock
+Documento_ERS.docx

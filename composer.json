@@ -1,0 +1,19 @@
+{
+    "name": "benja/registro-asistencias-mvc",
+    "description": "Web Registro de Asistencias de Estudiantes en Intituciones",
+    "type": "proyect",
+    "authors": [
+        {
+            "name": "Benjamin Arratia",
+            "email": "benjamin.arratia.santibanez@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Model\\": "./models",
+            "MVC\\": "./",
+            "Controllers\\": "./controllers"
+        }
+    },
+    "require": {}
+}

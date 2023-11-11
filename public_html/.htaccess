@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+# Redireccionar todas las peticiones que no sean archivos o carpetas existentes al archivo index.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
